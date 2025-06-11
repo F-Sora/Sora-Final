@@ -1,3 +1,5 @@
+
+
 package jp.ac.gifu_u.sora.vsai_drawing;
 
 import android.content.Context;
