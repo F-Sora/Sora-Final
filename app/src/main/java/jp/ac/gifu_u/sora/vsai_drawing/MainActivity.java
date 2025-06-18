@@ -1,52 +1,69 @@
 package jp.ac.gifu_u.sora.vsai_drawing;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Path;
 import android.os.Bundle;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    DrawingView drawingView;
-    Button btnEraser, btnPen;
+    private DrawingView drawingView;
+    private Button btnEraser, btnPen;
+
+    // 10色ボタン
+    private int[] colorButtonIds = {
+            R.id.btn_color_black, R.id.btn_color_red, R.id.btn_color_blue,
+            R.id.btn_color_green, R.id.btn_color_yellow, R.id.btn_color_orange,
+            R.id.btn_color_purple, R.id.btn_color_brown, R.id.btn_color_gray,
+            R.id.btn_color_pink
+    };
+
+    private String[] colorHexCodes = {
+            "#000000", "#FF0000", "#0000FF",
+            "#00FF00", "#FFFF00", "#FFA500",
+            "#800080", "#A52A2A", "#808080",
+            "#FFC0CB"
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
         drawingView = findViewById(R.id.drawingView);
         btnEraser = findViewById(R.id.btn_eraser);
         btnPen = findViewById(R.id.btn_pen);
 
-        // 消しゴムボタン：背景色と同じ白で描く
-        btnEraser.setOnClickListener(v -> {
-            drawingView.setStrokeWidth(40); // 太くすると消しやすく見える
-            drawingView.setColor("#FFFFFF"); // 背景と同じ白
+        // 消しゴムモード
+        btnEraser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawingView.setColor("#FFFFFF");
+                drawingView.setStrokeWidth(40f);
+            }
         });
 
-        // ペンボタン：通常の描画色（黒など）に戻す
-        btnPen.setOnClickListener(v -> {
-            drawingView.setStrokeWidth(8); // 通常のペン幅に戻す
-            drawingView.setColor("#000000"); // 黒色
+        // ペンモード（黒）
+        btnPen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawingView.setColor("#000000");
+                drawingView.setStrokeWidth(8f);
+            }
         });
-    }
+
+        // 色ボタンの設定
+        for (int i = 0; i < colorButtonIds.length; i++) {
+            final String color = colorHexCodes[i];
+            Button colorButton = findViewById(colorButtonIds[i]);
+            colorButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    drawingView.setColor(color);
+                    drawingView.setStrokeWidth(8f); // 通常の太さに戻す
+                }
+            });
+        }
     }
 }
