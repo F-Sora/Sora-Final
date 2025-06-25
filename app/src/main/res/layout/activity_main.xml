@@ -125,6 +125,25 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="消しゴム" />
+
+        <Button
+            android:id="@+id/btn_analyze"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AI解析"
+            android:layout_marginStart="16dp" />
+
+        <TextView
+            android:id="@+id/label_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ここにAIラベルが表示されます"
+            android:textSize="16sp"
+            android:padding="12dp"
+            android:background="#EEEEEE"
+            android:layout_marginTop="8dp"/>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

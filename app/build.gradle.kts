@@ -45,8 +45,6 @@ dependencies {
 
     // Firebase BoM（バージョン管理）
     implementation(platform("com.google.firebase:firebase-bom:33.15.0"))
-    implementation("com.google.firebase:firebase-analytics")
-
-    // ML Kit: 画像ラベリング用（クラウド版）
     implementation("com.google.mlkit:image-labeling:17.0.7")
+    implementation("com.google.firebase:firebase-analytics")
 }

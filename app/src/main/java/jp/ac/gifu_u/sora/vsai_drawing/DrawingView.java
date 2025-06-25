@@ -84,8 +84,8 @@ public class DrawingView extends View {
             paint.setColor(color);
             paint.setStrokeWidth(strokeWidth);
             paint.setStyle(Paint.Style.STROKE);
-            paint.setStrokeCap(Paint.Cap.ROUND); // 丸みをつける
-            paint.setStrokeJoin(Paint.Join.ROUND); // なめらかな結合
+            paint.setStrokeCap(Paint.Cap.ROUND);
+            paint.setStrokeJoin(Paint.Join.ROUND);
             paint.setAntiAlias(true);
         }
     }
