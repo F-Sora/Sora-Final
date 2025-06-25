@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1011358251711",
+    "project_id": "drawinglabelapp",
+    "storage_bucket": "drawinglabelapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1011358251711:android:6ea407ab2346e282a2240a",
+        "android_client_info": {
+          "package_name": "jp.ac.gifu_u.sora.vsai_drawing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnima4UvBU7a_MSiLEtnH0_E7jW3z_h9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
